@@ -112,6 +112,7 @@ svg {
 
 /* Slider Stuff */
 input[type="range"] {
+  -webkit-appearance: none;
   margin: 1rem 0rem;
   width: 100%;
   position: relative;

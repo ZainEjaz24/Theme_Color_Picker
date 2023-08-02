@@ -114,13 +114,9 @@ function colorizeSliders(color, hue, brightness, saturation) {
   const scaleBright = chroma.scale(["black", midBright, "white"]);
 
   //Update Input Colors
-  saturation.style.backgroundImage = `linear-gradient(to right,${scaleSat(
-    0
-  )}, ${scaleSat(1)})`;
-  brightness.style.backgroundImage = `linear-gradient(to right,${scaleBright(
-    0
-  )},${scaleBright(0.5)} ,${scaleBright(1)})`;
-  hue.style.backgroundImage = `linear-gradient(to right, rgb(204,75,75),rgb(204,204,75),rgb(75,204,75),rgb(75,204,204),rgb(75,75,204),rgb(204,75,204),rgb(204,75,75))`;
+  saturation.style.backgroundImage = `linear-gradient(to right, ${scaleSat(0)}, ${scaleSat(1)})`;
+  brightness.style.backgroundImage = `linear-gradient(to right, ${scaleBright(0)}, ${scaleBright(0.5)} , ${scaleBright(1)})`;
+  hue.style.backgroundImage = `linear-gradient (to right, rgb(204,75,75), rgb(204,204,75), rgb(75,204,75), rgb(75,204,204),rgb(75,75,204),rgb(204,75,204),rgb(204,75,75))`
 }
 
 function hslControls(e) {
@@ -183,7 +179,7 @@ function copyToClipboard(hex) {
   el.value = hex.innerText;
   document.body.appendChild(el);
   el.select();
-  document.execCommand("copy");
+  document.exeCommand("copy");
   document.body.removeChild(el);
   //Pop up animation
   const popupBox = popup.children[0];
@@ -243,15 +239,7 @@ function savePalette(e) {
   currentHexes.forEach(hex => {
     colors.push(hex.innerText);
   });
-  //Generate Object
-  //*1
-  // const paletteObjects = JSON.parse(localStorage.getItem("palettes"));
-  // let paletteNr;
-  // if (paletteObjects) {
-  //   paletteNr = paletteObjects.length;
-  // } else {
-  //   paletteNr = savedPalettes.length;
-  // }
+  
 
   let paletteNr;
   const paletteObjects = JSON.parse(localStorage.getItem("palettes"));
@@ -379,3 +367,7 @@ function getLocal() {
 
 getLocal();
 randomColors();
+
+
+
+
